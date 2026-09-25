@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Work — Real Restorations on O‘ahu | Vessel Steward</title>
+<meta name="description" content="Real maintenance and restoration performed on vessels on O‘ahu — interior wood, exterior teak, stainless and water-intrusion repairs, before and after.">
+<meta property="og:title" content="Our Work — Vessel Steward">
+<meta property="og:description" content="The work speaks for itself. Real maintenance and restoration performed on vessels on O‘ahu.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,440;9..144,500;9..144,560&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="site-header"></div>
+
+<main id="main">
+
+  <section class="wrap" style="padding-block: var(--space-6) var(--space-3);">
+    <h1>The work speaks for itself.</h1>
+    <p class="lead">Real maintenance and restoration performed on vessels on O‘ahu.</p>
+  </section>
+
+  <section class="wrap section--tight">
+    <div class="project-grid" id="work-project-grid" aria-live="polite"></div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="wrap section-head--center" style="max-width:34rem;margin-inline:auto;">
+      <h2>Have something on your boat that needs attention?</h2>
+      <p style="color:var(--paper-on-ink)">Send us a photo or tell us what's happening.</p>
+      <div class="cta-row" style="justify-content:center; margin-top: var(--space-3)">
+        <a class="btn btn-primary" href="contact.html">Talk to a Vessel Steward</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+<script src="data/projects.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.addEventListener("components:ready", function () {
+    var host = document.getElementById("work-project-grid");
+    if (!host || !window.VS_PROJECTS) return;
+    // Renders every project in data/projects.js — add an object there
+    // to add a project here without touching this page.
+    host.innerHTML = window.VS_PROJECTS.map(function (p) {
+      return (
+        '<article class="project-card">' +
+        '<div class="project-card__images">' +
+        '<div class="ph ph--square"><span class="ph__label">Before — ' + p.title + '</span></div>' +
+        '<div class="ph ph--square"><span class="ph__label">After — ' + p.title + '</span></div>' +
+        '</div>' +
+        '<div class="project-card__body">' +
+        '<span class="project-card__cat">' + p.category + '</span>' +
+        '<h3>' + p.title + '</h3>' +
+        '<dl><dt>The problem</dt><dd>' + p.problem + '</dd>' +
+        '<dt>What we did</dt><dd>' + p.work + '</dd>' +
+        '<dt>The result</dt><dd>' + p.result + '</dd></dl>' +
+        '</div></article>'
+      );
+    }).join("");
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Talk to a Vessel Steward — Vessel Steward</title>
+<meta name="description" content="Tell us about your boat and what you need help with — stewardship, restoration or a specific problem, on O‘ahu.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,440;9..144,500;9..144,560&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="site-header"></div>
+
+<main id="main">
+  <section class="wrap" style="padding-block: var(--space-6) var(--space-3); max-width: 44rem;">
+    <h1>Talk to a Vessel Steward</h1>
+    <p class="lead">Tell us about your boat and what you need help with. Whether it's ongoing stewardship, restoration or a specific problem, start with a conversation.</p>
+  </section>
+
+  <section class="wrap section--tight" style="padding-top:0;">
+    <!--
+      FORM BACKEND — REQUIRED BEFORE LAUNCH
+      This is a static site (GitHub Pages) with no backend, so this
+      form cannot send itself anywhere yet. Before launch, connect a
+      form service such as Formspree, Getform or Basin:
+        1. Create an endpoint with the provider of your choice.
+        2. Set the <form> action="" below to that endpoint URL.
+        3. Set method="POST" (already set).
+        4. Follow the provider's docs for any hidden fields they need
+           (e.g. Formspree's _replyto or a hidden "subject" field).
+      Until that's connected, this form will not deliver messages.
+    -->
+    <form class="form-grid form-grid--two" action="#" method="POST">
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div class="field">
+        <label for="phone">Phone <span style="font-weight:400;color:var(--ink-soft)">(optional)</span></label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel">
+      </div>
+      <div class="field">
+        <label for="boat-type">Boat type</label>
+        <input id="boat-type" name="boat_type" type="text" placeholder="e.g. sailboat, catamaran, powerboat">
+      </div>
+      <div class="field field--full">
+        <label for="location">Boat location / marina</label>
+        <input id="location" name="location" type="text">
+      </div>
+      <fieldset class="field field--full" style="border:0; padding:0; margin:0;">
+        <legend style="font-size:0.9rem; font-weight:600; margin-bottom:0.6em;">How can we help?</legend>
+        <div class="radio-group">
+          <label class="radio-chip"><input type="radio" name="help_type" value="Ongoing Stewardship" required> Ongoing Stewardship</label>
+          <label class="radio-chip"><input type="radio" name="help_type" value="Restoration & Care"> Restoration &amp; Care</label>
+          <label class="radio-chip"><input type="radio" name="help_type" value="Boat Check While Away"> Boat Check While Away</label>
+          <label class="radio-chip"><input type="radio" name="help_type" value="Specific Problem"> Specific Problem</label>
+          <label class="radio-chip"><input type="radio" name="help_type" value="Not Sure Yet"> Not Sure Yet</label>
+        </div>
+      </fieldset>
+      <div class="field field--full">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <div class="field field--full">
+        <label for="photo">Photo <span style="font-weight:400;color:var(--ink-soft)">(optional)</span></label>
+        <!-- Placeholder only: static hosting can't store uploads.
+             A connected form service (see comment above) typically
+             supports file-upload fields directly — swap this div
+             for that provider's file input once connected. -->
+        <div class="upload-ph">Photo upload will be available once a form service is connected — see the code comment above this form.</div>
+      </div>
+      <div class="field field--full">
+        <button class="btn btn-primary" type="submit">Send message</button>
+        <p class="field-note">We'll get back to you to talk through what your boat needs.</p>
+      </div>
+    </form>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
