@@ -1,0 +1,44 @@
+/* =========================================================
+   VESSEL STEWARD — DESIGN TOKENS
+   Palette, type and spacing scale. Edit here to restyle
+   the whole site from one place.
+   ========================================================= */
+:root {
+  /* ---- Color: quiet marine palette ---- */
+  --ink: #16232A;            /* near-black teal, primary text */
+  --ink-soft: #3B4A50;       /* secondary text on light */
+  --fog: #EEF0EA;            /* primary background — sea-fog linen */
+  --canvas: #F7F6F1;         /* card / alt-section background */
+  --canvas-deep: #E4E6DE;    /* recessed panels, input backgrounds */
+  --line: #D6D8CC;           /* hairline borders/dividers */
+  --steward: #3F5A52;        /* deep sea-green — primary accent + CTA */
+  --steward-deep: #2C4038;   /* hover/active state of accent */
+  --teak: #8B6B46;           /* warm wood tone — restoration proof only */
+  --paper-on-ink: #EDEAE0;   /* text on dark sections */
+  --ink-panel: #101B20;      /* dark section background */
+
+  /* ---- Type ---- */
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --step-caption: 0.8125rem;
+  --step-body: 1.0625rem;
+  --step-lead: 1.25rem;
+  --step-h3: clamp(1.25rem, 1.1rem + 0.6vw, 1.6rem);
+  --step-h2: clamp(1.75rem, 1.4rem + 1.6vw, 2.6rem);
+  --step-h1: clamp(2.25rem, 1.6rem + 3vw, 3.75rem);
+
+  --space-1: 0.5rem;
+  --space-2: 0.875rem;
+  --space-3: 1.5rem;
+  --space-4: 2.25rem;
+  --space-5: 3.5rem;
+  --space-6: 5.5rem;
+  --space-7: 8rem;
+
+  --content-max: 74rem;
+  --text-max: 40rem;
+
+  --radius: 3px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}

@@ -1,0 +1,150 @@
+/* =========================================================
+   VESSEL STEWARD — HEADER / NAV / FOOTER
+   ========================================================= */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(238, 240, 234, 0.92);
+  backdrop-filter: saturate(140%) blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 4.5rem;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 560;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.wordmark span { color: var(--steward); }
+
+.nav-primary {
+  display: none;
+}
+.nav-primary ul {
+  list-style: none;
+  display: flex;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+}
+.nav-primary a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  padding: 0.35em 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+.nav-primary a:hover, .nav-primary a[aria-current="page"] {
+  color: var(--ink);
+  border-color: var(--steward);
+}
+
+.header-cta { display: none; }
+
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  background: transparent;
+  border: 1px solid var(--line);
+  padding: 0.55em 0.9em;
+  border-radius: var(--radius);
+}
+.nav-toggle svg { width: 20px; height: 20px; }
+
+@media (min-width: 960px) {
+  .nav-primary { display: block; }
+  .header-cta { display: inline-flex; }
+  .nav-toggle { display: none; }
+}
+
+/* Mobile menu panel */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: var(--fog);
+  z-index: 150;
+  padding: var(--space-3);
+  display: none;
+  flex-direction: column;
+}
+.mobile-menu.is-open { display: flex; }
+.mobile-menu__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-5);
+}
+.mobile-menu__close {
+  background: transparent;
+  border: 1px solid var(--line);
+  padding: 0.55em 0.9em;
+  border-radius: var(--radius);
+}
+.mobile-menu ul {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.mobile-menu a {
+  text-decoration: none;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+}
+.mobile-menu .cta-row { margin-top: var(--space-5); }
+.mobile-menu .btn { width: 100%; justify-content: center; }
+
+/* ---- Footer ---- */
+.site-footer {
+  background: var(--ink-panel);
+  color: var(--paper-on-ink);
+  padding-block: var(--space-6) var(--space-4);
+}
+.site-footer .wordmark { color: var(--paper-on-ink); }
+.footer-grid {
+  display: grid;
+  gap: var(--space-4);
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid rgba(237,234,224,0.18);
+}
+@media (min-width: 760px) {
+  .footer-grid { grid-template-columns: 1.3fr 1fr 1fr; }
+}
+.footer-tagline { font-family: var(--font-display); font-size: 1.15rem; margin-top: var(--space-2); max-width: 26rem; color: var(--paper-on-ink); }
+.footer-note { color: #A9B2A7; font-size: 0.95rem; max-width: 26rem; }
+.footer-col h4 {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: #A9B2A7;
+  margin-bottom: var(--space-2);
+  font-weight: 600;
+}
+.footer-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.6em; }
+.footer-col a { color: var(--paper-on-ink); text-decoration: none; }
+.footer-col a:hover { text-decoration: underline; }
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: space-between;
+  padding-top: var(--space-3);
+  font-size: 0.85rem;
+  color: #8B948A;
+}

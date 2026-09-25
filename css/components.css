@@ -1,0 +1,312 @@
+/* =========================================================
+   VESSEL STEWARD — COMPONENTS
+   ========================================================= */
+
+/* ---- Hero ---- */
+.hero {
+  display: grid;
+  gap: var(--space-4);
+  padding-block: var(--space-5) var(--space-6);
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .hero { grid-template-columns: 1fr 1fr; gap: var(--space-6); padding-block: var(--space-6) var(--space-7); }
+  .hero--reverse { direction: rtl; }
+  .hero--reverse > * { direction: ltr; }
+}
+.hero__kicker {
+  font-size: var(--step-lead);
+  color: var(--steward-deep);
+  font-family: var(--font-display);
+  margin-bottom: var(--space-2);
+}
+.hero h1 { margin-bottom: var(--space-2); }
+.hero .lead { margin-bottom: var(--space-4); }
+
+/* ---- Concept grid (3–4 short items) ---- */
+.concept-grid {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+@media (min-width: 700px) {
+  .concept-grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .concept-grid--4 { grid-template-columns: repeat(4, 1fr); }
+}
+.concept {
+  padding-top: var(--space-2);
+  border-top: 2px solid var(--steward);
+}
+.concept h3 { font-size: 1.1rem; margin-bottom: 0.35em; }
+.concept p { font-size: 0.98rem; color: var(--ink-soft); margin-bottom: 0; }
+
+/* ---- Process steps (genuine sequences only) ---- */
+.process {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+  counter-reset: step;
+}
+@media (min-width: 760px) {
+  .process { grid-template-columns: repeat(5, 1fr); gap: var(--space-3); }
+}
+.process__step {
+  position: relative;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--line);
+}
+.process__step::before {
+  counter-increment: step;
+  content: counter(step, decimal-leading-zero);
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--steward);
+  margin-bottom: 0.4em;
+}
+.process__step h3 { font-size: 1.05rem; margin-bottom: 0.3em; }
+.process__step p { font-size: 0.95rem; color: var(--ink-soft); margin-bottom: 0; }
+
+/* ---- Care-path comparison diagram ---- */
+.care-compare {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+@media (min-width: 800px) {
+  .care-compare { grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+}
+.care-path {
+  border: 1px solid var(--line);
+  padding: var(--space-4);
+  background: var(--canvas);
+}
+.care-path--good { border-left: 4px solid var(--steward); }
+.care-path--bad { border-left: 4px solid var(--teak); }
+.care-path h3 {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+  margin-bottom: var(--space-3);
+  font-weight: 700;
+}
+.care-path__chain {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: var(--space-3);
+}
+.care-path__node {
+  padding: 0.5em 0.85em;
+  border: 1px solid var(--line);
+  background: var(--fog);
+  font-size: 0.92rem;
+}
+.care-path--good .care-path__node:last-child { border-color: var(--steward); color: var(--steward-deep); font-weight: 600; }
+.care-path--bad .care-path__node:last-child { border-color: var(--teak); color: #6B5233; font-weight: 600; }
+.care-path__arrow { color: var(--ink-soft); }
+.care-path__result { font-weight: 600; margin-bottom: 0; }
+
+/* ---- Digital Boat Care Journal mockup ---- */
+.journal {
+  border: 1px solid var(--line);
+  background: var(--canvas);
+  overflow: hidden;
+}
+.journal__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--line);
+  background: var(--fog);
+}
+.journal__dot { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
+.journal__title { font-size: 0.85rem; color: var(--ink-soft); margin-left: 0.5em; }
+.journal__body { padding: var(--space-3); }
+.journal__vessel { font-family: var(--font-display); font-size: 1.2rem; margin-bottom: var(--space-3); }
+.journal__categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2);
+}
+@media (min-width: 620px) {
+  .journal__categories { grid-template-columns: repeat(3, 1fr); }
+}
+.journal__cat {
+  border: 1px solid var(--line);
+  background: var(--fog);
+  padding: var(--space-2);
+}
+.journal__cat span { display: block; font-size: 0.78rem; letter-spacing: 0.02em; color: var(--steward-deep); font-weight: 700; margin-bottom: 0.3em; }
+.journal__cat small { color: var(--ink-soft); font-size: 0.85rem; }
+
+.benefit-row {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+@media (min-width: 700px) { .benefit-row { grid-template-columns: repeat(2, 1fr); } }
+.benefit {
+  border: 1px solid var(--line);
+  padding: var(--space-3);
+}
+.benefit h3 { font-size: 1rem; margin-bottom: 0.35em; }
+.benefit p { font-size: 0.95rem; color: var(--ink-soft); margin-bottom: 0; }
+
+/* ---- Service block (Restoration & Care) ---- */
+.service-block {
+  display: grid;
+  gap: var(--space-4);
+  padding-block: var(--space-5);
+  border-top: 1px solid var(--line);
+}
+@media (min-width: 860px) {
+  .service-block { grid-template-columns: 1fr 1fr; gap: var(--space-6); align-items: start; }
+  .service-block--reverse .service-block__media { order: 2; }
+}
+.service-block__list { columns: 1; margin: var(--space-3) 0; padding-left: 1.1em; color: var(--ink-soft); }
+@media (min-width: 500px) { .service-block__list { columns: 2; } }
+.service-block__list li { margin-bottom: 0.4em; break-inside: avoid; }
+.service-block__key {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--steward-deep);
+  border-left: 3px solid var(--steward);
+  padding-left: 0.8em;
+  margin-top: var(--space-3);
+  max-width: 30rem;
+}
+
+/* ---- Pricing ---- */
+.pricing-card {
+  border: 1px solid var(--line);
+  background: var(--canvas);
+  padding: var(--space-5);
+  max-width: 30rem;
+}
+.pricing-card__amount { font-family: var(--font-display); font-size: 2.6rem; margin: var(--space-2) 0; }
+.pricing-card__amount small { font-family: var(--font-body); font-size: 1rem; color: var(--ink-soft); }
+.pricing-card__flag {
+  display: inline-block;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: var(--teak);
+  border: 1px solid var(--teak);
+  padding: 0.3em 0.6em;
+  margin-bottom: var(--space-3);
+}
+.pricing-card ul { padding-left: 1.1em; color: var(--ink-soft); margin-bottom: var(--space-4); }
+.price-from { color: var(--ink-soft); font-size: 0.95rem; }
+.price-from strong { color: var(--ink); font-family: var(--font-display); font-size: 1.15rem; }
+
+/* ---- Accordion (FAQ) ---- */
+.accordion { border-top: 1px solid var(--line); margin-top: var(--space-4); }
+.accordion-item { border-bottom: 1px solid var(--line); }
+.accordion-trigger {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 0;
+  padding: var(--space-3) 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  cursor: pointer;
+  color: var(--ink);
+}
+.accordion-trigger .plus { flex-shrink: 0; transition: transform 0.2s var(--ease); font-size: 1.3rem; color: var(--steward); }
+.accordion-trigger[aria-expanded="true"] .plus { transform: rotate(45deg); }
+.accordion-panel {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.25s var(--ease);
+}
+.accordion-panel p { padding-bottom: var(--space-3); color: var(--ink-soft); }
+
+/* ---- Project / case-study cards ---- */
+.project-grid {
+  display: grid;
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+}
+@media (min-width: 760px) { .project-grid { grid-template-columns: repeat(2, 1fr); } }
+.project-card {
+  border: 1px solid var(--line);
+  background: var(--canvas);
+}
+.project-card__images { display: grid; grid-template-columns: 1fr 1fr; }
+.project-card__images .ph { border: 0; border-radius: 0; }
+.project-card__images .ph:first-child { border-right: 1px solid var(--line); }
+.project-card__body { padding: var(--space-3); }
+.project-card__cat {
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: var(--steward-deep);
+  font-weight: 700;
+  margin-bottom: 0.5em;
+  display: block;
+}
+.project-card dl { margin: var(--space-2) 0 0; }
+.project-card dt { font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.7em; }
+.project-card dd { margin: 0.15em 0 0; font-size: 0.95rem; }
+
+/* ---- Owner-away checklist ---- */
+.check-list { list-style: none; padding: 0; margin: var(--space-4) 0; display: grid; gap: 0.75em; }
+.check-list li { display: flex; gap: 0.7em; align-items: flex-start; }
+.check-list li::before {
+  content: "";
+  width: 7px; height: 7px;
+  margin-top: 0.55em;
+  background: var(--steward);
+  flex-shrink: 0;
+}
+
+/* ---- Contact form ---- */
+.form-grid { display: grid; gap: var(--space-3); margin-top: var(--space-4); max-width: 40rem; }
+@media (min-width: 640px) { .form-grid--two { grid-template-columns: 1fr 1fr; } }
+.field { display: flex; flex-direction: column; gap: 0.4em; }
+.field label { font-size: 0.9rem; font-weight: 600; }
+.field--full { grid-column: 1 / -1; }
+.field input,
+.field select,
+.field textarea {
+  border: 1px solid var(--line);
+  background: var(--canvas);
+  padding: 0.75em 0.9em;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ink);
+  border-radius: var(--radius);
+}
+.field textarea { resize: vertical; min-height: 8rem; }
+.field-hint { font-size: 0.85rem; color: var(--ink-soft); }
+.radio-group { display: flex; flex-wrap: wrap; gap: 0.6em; }
+.radio-chip {
+  border: 1px solid var(--line);
+  padding: 0.6em 1em;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background: var(--canvas);
+}
+.radio-chip input { position: absolute; opacity: 0; }
+.radio-chip:has(input:checked) {
+  background: var(--steward);
+  border-color: var(--steward);
+  color: var(--paper-on-ink);
+}
+.upload-ph {
+  border: 1px dashed var(--line);
+  padding: var(--space-4);
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+/* ---- Small print / labels used sparingly (not as decoration) ---- */
+.field-note { font-size: 0.85rem; color: var(--ink-soft); margin-top: var(--space-2); }
