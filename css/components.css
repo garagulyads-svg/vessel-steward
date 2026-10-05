@@ -1,81 +1,88 @@
 /* =========================================================
    VESSEL STEWARD — COMPONENTS
+   Calm, maritime, photography-led. Every component below is
+   still referenced by the existing HTML/JS — only the visual
+   treatment changed here.
    ========================================================= */
 
 /* ---- Hero ---- */
 .hero {
   display: grid; gap: var(--space-4);
-  padding-block: var(--space-5) var(--space-6);
+  padding-block: var(--space-5);
   align-items: center;
 }
 @media (min-width: 900px) {
-  .hero { grid-template-columns: 1fr 1fr; gap: var(--space-6); padding-block: var(--space-6) var(--space-7); }
+  .hero { grid-template-columns: 1fr 1fr; gap: var(--space-5); padding-block: var(--space-6); }
 }
-.hero--compact { padding-block: var(--space-5) var(--space-5); }
+.hero--compact { padding-block: var(--space-5); }
 .hero h1 { margin-bottom: var(--space-2); }
-.hero .lead { margin-bottom: var(--space-3); }
+.hero .lead { margin-bottom: var(--space-2); }
 
-/* ---- Concept row (short labeled items, not cards) ---- */
-.concept-grid { display: grid; gap: var(--space-4); margin-top: var(--space-4); }
+/* ---- Concept row: short labeled items, a hairline does the work a
+   card or icon would otherwise do ---- */
+.concept-grid { display: grid; gap: var(--space-3) var(--space-4); margin-top: var(--space-3); }
 @media (min-width: 700px) {
   .concept-grid--3 { grid-template-columns: repeat(3, 1fr); }
 }
 .concept { padding-top: var(--space-2); border-top: 1px solid var(--brass); }
-.concept h3 { font-size: 1rem; font-family: var(--font-body); font-weight: 600; letter-spacing: 0.01em; margin-bottom: 0.35em; }
-.concept p { font-size: 0.98rem; color: var(--navy-soft); margin-bottom: 0; }
+.concept h3 { font-size: var(--step-nav); margin-bottom: 0.3em; }
+.concept p { font-size: var(--step-body); color: var(--navy-soft); margin-bottom: 0; }
 
-/* ---- Digital Boat Care Journal mockup ---- */
-.journal { border: 1px solid var(--line); background: var(--paper); }
-.journal__bar { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-3); border-bottom: 1px solid var(--line); background: var(--ivory-deep); }
-.journal__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brass); opacity: 0.55; }
-.journal__title { font-size: 0.85rem; color: var(--navy-soft); margin-left: 0.5em; font-family: var(--font-body); }
-.journal__body { padding: var(--space-3); }
-.journal__categories { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-2); }
-@media (min-width: 620px) { .journal__categories { grid-template-columns: repeat(3, 1fr); } }
-.journal__cat { border: 1px solid var(--line); background: var(--ivory); padding: var(--space-2); }
-.journal__cat span { display: block; font-size: 0.78rem; letter-spacing: 0.02em; color: var(--brass-deep); font-weight: 700; margin-bottom: 0.3em; }
-.journal__cat small { color: var(--navy-soft); font-size: 0.85rem; }
+/* ---- Digital Boat Care Journal — quiet photographic plate,
+   deliberately NOT a dashboard/software mockup. Reuses the same
+   placeholder pattern as the rest of the site's photography. ---- */
+.log-plate { background: var(--paper); border: 1px solid var(--line); padding: var(--space-1); }
+.log-plate__frame { border: 1px solid var(--brass); padding: 4px; }
+.log-plate__frame .ph { border: 0; }
+.log-plate figcaption {
+  text-align: center; margin-top: var(--space-2); padding-bottom: 0.3em;
+  font-size: var(--step-small); color: var(--navy-soft); letter-spacing: 0.02em;
+}
 
-.benefit-row { display: grid; gap: var(--space-3); margin-top: var(--space-4); }
-@media (min-width: 700px) { .benefit-row { grid-template-columns: repeat(3, 1fr); } }
-.benefit { border-top: 1px solid var(--line); padding-top: var(--space-2); }
-.benefit h3 { font-size: 1rem; font-family: var(--font-body); font-weight: 600; margin-bottom: 0.35em; }
-.benefit p { font-size: 0.95rem; color: var(--navy-soft); margin-bottom: 0; }
+/* ---- Homepage Our Work preview — large photography, light captions ---- */
+.work-preview { display: grid; gap: var(--space-3); margin-top: var(--space-3); }
+@media (min-width: 760px) { .work-preview { grid-template-columns: repeat(3, 1fr); } }
+.work-preview__item figcaption { margin-top: var(--space-2); font-family: var(--font-display); font-size: 1.05rem; color: var(--navy); }
 
 /* =========================================================
-   ACCORDIONS
-   Two flavors sharing one visual language:
-   - .accordion--single  (Restoration & Care: only one open at a time)
-   - .accordion--multi   (Stewardship checklists: open independently)
+   ACCORDIONS — maritime ledger, not a software FAQ widget.
+   Two flavors share this visual language:
+   - .accordion--single via data-accordion="single" (Restoration & Care)
+   - .accordion--multi  via data-accordion="multi"  (Stewardship checks)
+   (the open/exclusive behavior is handled by js/accordion.js; only
+   the visual treatment lives here)
    ========================================================= */
-.accordion { border-top: 1px solid var(--line); margin-top: var(--space-4); }
-.accordion-row { border-bottom: 1px solid var(--line); }
+.accordion { border-top: 1px solid var(--line); margin-top: var(--space-3); }
+.accordion-row { border-bottom: 1px solid var(--line); transition: background 0.2s var(--ease); }
+.accordion-row:has(.accordion-trigger[aria-expanded="true"]) { background: rgba(161, 129, 63, 0.06); }
+
+.accordion-row h3 { margin: 0; } /* the row's own heading is reset; the trigger below carries the type */
 
 .accordion-trigger {
   width: 100%; text-align: left; background: none; border: 0; cursor: pointer;
   display: flex; align-items: center; justify-content: space-between; gap: var(--space-3);
-  padding: var(--space-3) 0;
+  padding: var(--space-3) 0.25em;
 }
-.accordion-trigger__text { display: flex; flex-direction: column; gap: 0.35em; }
+.accordion-trigger__text { display: flex; flex-direction: column; gap: 0.3em; }
 .accordion-trigger__title {
-  font-family: var(--font-display); font-size: 1.25rem; color: var(--navy);
+  font-family: var(--font-display); font-weight: 400; font-size: 1.2rem; color: var(--navy);
   display: flex; align-items: baseline; gap: 0.6em;
 }
 .accordion-trigger__num { font-family: var(--font-body); font-size: 0.78rem; color: var(--brass-deep); letter-spacing: 0.04em; }
-.accordion-trigger__preview { font-size: 0.92rem; color: var(--navy-soft); }
+.accordion-trigger__preview { font-size: var(--step-small); color: var(--navy-soft); }
 .accordion-trigger__mark {
-  flex-shrink: 0; font-family: var(--font-body); font-size: 1.6rem; font-weight: 300;
+  flex-shrink: 0; font-family: var(--font-body); font-size: 1.5rem; font-weight: 300;
   color: var(--brass); transition: transform 0.2s var(--ease); line-height: 1;
 }
-.accordion-trigger[aria-expanded="true"] .accordion-trigger__mark { transform: rotate(45deg); }
+.accordion-trigger[aria-expanded="true"] .accordion-trigger__mark { transform: rotate(45deg); color: var(--brass-deep); }
 
 .accordion-panel { overflow: hidden; max-height: 0; transition: max-height 0.28s var(--ease); }
-.accordion-panel__inner { padding-bottom: var(--space-4); }
+.accordion-panel__inner { padding: 0 0.25em var(--space-4); }
 
 /* Restoration & Care: two-column plain service list, no descriptions */
 .service-list { list-style: none; margin: 0; padding: 0; columns: 1; column-gap: var(--space-4); }
 @media (min-width: 640px) { .service-list { columns: 2; } }
-.service-list li { break-inside: avoid; padding: 0.5em 0; border-top: 1px solid var(--line); font-size: 0.98rem; }
+.service-list li { break-inside: avoid; padding: 0.55em 0; border-top: 1px solid var(--line); font-size: var(--step-body); }
 .service-list li:first-child,
 .service-list li:nth-child(2) { border-top: 0; }
 @media (min-width: 640px) {
@@ -84,47 +91,42 @@
 
 /* Stewardship checklists: single-column item list */
 .check-plain { list-style: none; margin: 0; padding: 0; }
-.check-plain li { padding: 0.55em 0; border-top: 1px solid var(--line); font-size: 0.98rem; }
+.check-plain li { padding: 0.55em 0.25em; border-top: 1px solid var(--line); font-size: var(--step-body); }
 .check-plain li:first-child { border-top: 0; }
 
-.accordion-footnote { font-size: 0.86rem; color: var(--navy-soft); margin-top: var(--space-3); }
+.accordion-footnote { font-size: var(--step-small); color: var(--navy-soft); margin-top: var(--space-2); }
 
-/* ---- Pricing ---- */
-.pricing-grid { display: grid; gap: var(--space-4); margin-top: var(--space-4); }
+/* ---- Pricing: a quiet plaque, not a SaaS pricing card ---- */
+.pricing-grid { display: grid; gap: var(--space-3); margin-top: var(--space-3); }
 @media (min-width: 700px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); } }
-.pricing-card { border: 1px solid var(--line); background: var(--paper); padding: var(--space-4); }
-.pricing-card h3 { font-size: 1.1rem; margin-bottom: 0.3em; }
-.pricing-card__amount { font-family: var(--font-display); font-size: 2.1rem; margin: 0.4em 0 0; color: var(--navy); }
-.pricing-card__amount small { font-family: var(--font-body); font-size: 0.95rem; color: var(--navy-soft); font-weight: 500; }
-.pricing-includes { margin-top: var(--space-4); border-top: 1px solid var(--line); padding-top: var(--space-3); }
-.pricing-includes__list { list-style: none; margin: var(--space-2) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5em 1em; color: var(--navy-soft); font-size: 0.95rem; }
+.pricing-card { border: 1px solid var(--line); border-top: 2px solid var(--brass); background: var(--paper); padding: var(--space-4); }
+.pricing-card h3 { font-size: var(--step-nav); margin-bottom: 0.2em; color: var(--navy-soft); font-weight: 600; }
+.pricing-card__amount { font-family: var(--font-display); font-weight: 400; font-size: 1.9rem; margin: 0.3em 0 0; color: var(--navy); }
+.pricing-card__amount small { font-family: var(--font-body); font-size: var(--step-small); color: var(--navy-soft); font-weight: 500; }
+.pricing-includes { margin-top: var(--space-3); border-top: 1px solid var(--line); padding-top: var(--space-3); }
+.pricing-includes__list { list-style: none; margin: var(--space-2) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5em 1em; color: var(--navy-soft); font-size: var(--step-body); }
 .pricing-includes__list li::after { content: "·"; margin-left: 1em; color: var(--brass); }
 .pricing-includes__list li:last-child::after { content: ""; margin-left: 0; }
-.pricing-disclaimer { font-size: 0.88rem; color: var(--navy-soft); margin-top: var(--space-4); max-width: 42rem; }
+.pricing-disclaimer { font-size: var(--step-small); color: var(--navy-soft); margin-top: var(--space-3); max-width: 42rem; }
 
-/* ---- Our Work: large project blocks (not small cards) ---- */
-.project-block { padding-block: var(--space-5); border-top: 1px solid var(--line); }
-.project-block__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: var(--space-2); margin-bottom: var(--space-3); }
-.project-block__cat { font-family: var(--font-body); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--brass-deep); font-weight: 600; }
+/* ---- Our Work: large project blocks, photography-led ---- */
+.project-block { padding-block: var(--space-4); border-top: 1px solid var(--line); }
+.project-block__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: var(--space-2); margin-bottom: var(--space-2); }
+.project-block__cat { font-family: var(--font-body); font-size: var(--step-small); color: var(--navy-soft); }
 .project-sequence { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-2); }
 @media (max-width: 640px) { .project-sequence { grid-template-columns: 1fr; } }
 .project-sequence .ph { aspect-ratio: 4/3; }
 
-/* Homepage Our Work preview — large photography, light captions */
-.work-preview { display: grid; gap: var(--space-4); margin-top: var(--space-4); }
-@media (min-width: 760px) { .work-preview { grid-template-columns: repeat(3, 1fr); } }
-.work-preview__item figcaption { margin-top: var(--space-2); font-family: var(--font-display); font-size: 1.05rem; }
-
 /* ---- Contact page blocks ---- */
-.contact-block { border-top: 1px solid var(--line); padding-block: var(--space-4); }
+.contact-block { border-top: 1px solid var(--line); padding-block: var(--space-3); }
 .contact-block:first-child { border-top: 0; }
-.contact-block h3 { font-size: 0.85rem; font-family: var(--font-body); letter-spacing: 0.06em; color: var(--brass-deep); font-weight: 700; margin-bottom: 0.5em; }
-.contact-block__value { font-family: var(--font-display); font-size: 1.9rem; margin-bottom: 0.3em; }
+.contact-block h3 { font-size: 0.82rem; font-family: var(--font-body); letter-spacing: 0.06em; color: var(--brass-deep); font-weight: 700; margin-bottom: 0.5em; text-transform: uppercase; }
+.contact-block__value { font-family: var(--font-display); font-weight: 400; font-size: 1.6rem; margin-bottom: 0.3em; color: var(--navy); }
 .contact-block__value a { text-decoration: none; color: var(--navy); }
 .contact-block__value a:hover { color: var(--brass-deep); }
 .contact-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-2); }
 
 /* ---- Legal page typography ---- */
-.legal h2 { font-size: 1.3rem; margin-top: var(--space-5); }
+.legal h2 { font-size: 1.15rem; margin-top: var(--space-4); font-family: var(--font-body); font-weight: 600; }
 .legal p, .legal li { color: var(--navy-soft); max-width: 42rem; }
-.legal .updated { color: var(--navy-soft); font-size: 0.9rem; margin-bottom: var(--space-4); }
+.legal .updated { color: var(--navy-soft); font-size: var(--step-small); margin-bottom: var(--space-3); }

@@ -1,47 +1,51 @@
 /* =========================================================
    VESSEL STEWARD — DESIGN TOKENS
-   Established American yacht-club / marine-craftsmanship palette.
-   Edit here to restyle the whole site from one place.
+   Established American yacht-club / traditional-boatyard palette.
+   Calm, light, legible. Edit here to restyle the whole site.
    ========================================================= */
 :root {
-  /* ---- Color ---- */
-  --ivory: #F3EFE3;        /* sailcloth — primary background */
-  --ivory-deep: #EAE2CC;   /* recessed panels, alt sections */
-  --paper: #FAF8F1;        /* lightest surface, cards on ivory-deep */
-  --navy: #1C2B3A;         /* deep marine ink — primary text & headings */
-  --navy-soft: #45586A;    /* secondary text */
-  --navy-deep: #141F29;    /* footer / deepest navy surface */
-  --teak: #8B6239;         /* warm wood — used in photography captions only */
-  --brass: #9C7A3C;        /* restrained bronze/brass accent */
-  --brass-deep: #7E632F;   /* brass hover/active */
-  --line: #D8CEB2;         /* warm hairline border */
-  --line-on-navy: rgba(237, 231, 214, 0.22);
-  --on-navy: #EDE7D6;      /* text on navy surfaces */
-  --on-navy-soft: #B7AF97;
+  /* ---- Color: warm, light, maritime — never pure black ---- */
+  --ivory: #F6F2E6;          /* sailcloth / aged canvas — primary background */
+  --ivory-deep: #F0EADA;     /* quietly recessed panels — a shade, not a block */
+  --paper: #FBF8F0;          /* lightest surface, cards */
+  --navy: #1E2E3D;           /* classic deep navy — primary text & headings */
+  --navy-soft: #4C5D6C;      /* secondary text, warmer and lighter than pure ink */
+  --navy-deep: #16232E;      /* footer / deepest navy surface, sparingly used */
+  --teak: #8B6239;           /* weathered wood — photography captions, thin accents */
+  --brass: #A1813F;          /* muted brass/bronze — the one small accent */
+  --brass-deep: #826531;     /* brass hover/active, accordion marks */
+  --line: #DED3B4;           /* warm hairline border, used instead of hard blocks */
+  --line-on-navy: rgba(237, 231, 214, 0.2);
+  --on-navy: #EDE7D6;        /* text on navy surfaces */
+  --on-navy-soft: #B7AE97;
 
-  /* ---- Type ---- */
-  --font-display: "Libre Caslon Display", Georgia, "Times New Roman", serif;
-  --font-serif-text: "Libre Caslon Text", Georgia, serif;
-  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  /* ---- Type: exactly two families, site-wide ---- */
+  --font-display: "Libre Caslon Display", Georgia, "Times New Roman", serif; /* heritage serif — major headings only */
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; /* humanist sans — nav, body, buttons, supporting copy */
 
-  --step-caption: 0.8125rem;
-  --step-body: 1.0625rem;
-  --step-lead: 1.25rem;
-  --step-h3: clamp(1.2rem, 1.08rem + 0.5vw, 1.5rem);
-  --step-h2: clamp(1.7rem, 1.4rem + 1.4vw, 2.5rem);
-  --step-h1: clamp(2.2rem, 1.6rem + 2.8vw, 3.6rem);
+  /* Restrained type scale — body set for a 45–70 audience, headings
+     kept close enough to body that nothing "shouts". */
+  --step-caption: 0.875rem;   /* ~15.75px — placeholder labels / fine print only */
+  --step-small: 0.9375rem;    /* ~16.9px — footer/legal minimum */
+  --step-body: 1.125rem;      /* 18px — desktop & mobile base */
+  --step-nav: 1.0625rem;      /* ~17px */
+  --step-lead: 1.1875rem;     /* ~21px — supporting lead copy, not italic */
+  --step-h3: clamp(1.2rem, 1.1rem + 0.4vw, 1.4rem);
+  --step-h2: clamp(1.6rem, 1.35rem + 1vw, 2.1rem);
+  --step-h1: clamp(2rem, 1.6rem + 1.8vw, 2.75rem);
 
+  /* Controlled spacing — generous, not cavernous */
   --space-1: 0.5rem;
   --space-2: 0.875rem;
-  --space-3: 1.5rem;
-  --space-4: 2.25rem;
-  --space-5: 3.5rem;
-  --space-6: 5.5rem;
-  --space-7: 7.5rem;
+  --space-3: 1.375rem;
+  --space-4: 2rem;
+  --space-5: 2.75rem;
+  --space-6: 3.75rem;
+  --space-7: 5rem;
 
-  --content-max: 72rem;
-  --text-max: 38rem;
+  --content-max: 70rem;
+  --text-max: 36rem;
 
-  --radius: 0px; /* square, engraved ledger feel — no rounded-SaaS corners */
+  --radius: 2px;  /* crisp, not square-brutal, never a pill */
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
