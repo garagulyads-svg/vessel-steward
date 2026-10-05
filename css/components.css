@@ -1,132 +1,18 @@
-/* =========================================================
-   VESSEL STEWARD — COMPONENTS
-   Calm, maritime, photography-led. Every component below is
-   still referenced by the existing HTML/JS — only the visual
-   treatment changed here.
-   ========================================================= */
-
-/* ---- Hero ---- */
-.hero {
-  display: grid; gap: var(--space-4);
-  padding-block: var(--space-5);
-  align-items: center;
-}
-@media (min-width: 900px) {
-  .hero { grid-template-columns: 1fr 1fr; gap: var(--space-5); padding-block: var(--space-6); }
-}
-.hero--compact { padding-block: var(--space-5); }
-.hero h1 { margin-bottom: var(--space-2); }
-.hero .lead { margin-bottom: var(--space-2); }
-
-/* ---- Concept row: short labeled items, a hairline does the work a
-   card or icon would otherwise do ---- */
-.concept-grid { display: grid; gap: var(--space-3) var(--space-4); margin-top: var(--space-3); }
-@media (min-width: 700px) {
-  .concept-grid--3 { grid-template-columns: repeat(3, 1fr); }
-}
-.concept { padding-top: var(--space-2); border-top: 1px solid var(--brass); }
-.concept h3 { font-size: var(--step-nav); margin-bottom: 0.3em; }
-.concept p { font-size: var(--step-body); color: var(--navy-soft); margin-bottom: 0; }
-
-/* ---- Digital Boat Care Journal — quiet photographic plate,
-   deliberately NOT a dashboard/software mockup. Reuses the same
-   placeholder pattern as the rest of the site's photography. ---- */
-.log-plate { background: var(--paper); border: 1px solid var(--line); padding: var(--space-1); }
-.log-plate__frame { border: 1px solid var(--brass); padding: 4px; }
-.log-plate__frame .ph { border: 0; }
-.log-plate figcaption {
-  text-align: center; margin-top: var(--space-2); padding-bottom: 0.3em;
-  font-size: var(--step-small); color: var(--navy-soft); letter-spacing: 0.02em;
-}
-
-/* ---- Homepage Our Work preview — large photography, light captions ---- */
-.work-preview { display: grid; gap: var(--space-3); margin-top: var(--space-3); }
-@media (min-width: 760px) { .work-preview { grid-template-columns: repeat(3, 1fr); } }
-.work-preview__item figcaption { margin-top: var(--space-2); font-family: var(--font-display); font-size: 1.05rem; color: var(--navy); }
-
-/* =========================================================
-   ACCORDIONS — maritime ledger, not a software FAQ widget.
-   Two flavors share this visual language:
-   - .accordion--single via data-accordion="single" (Restoration & Care)
-   - .accordion--multi  via data-accordion="multi"  (Stewardship checks)
-   (the open/exclusive behavior is handled by js/accordion.js; only
-   the visual treatment lives here)
-   ========================================================= */
-.accordion { border-top: 1px solid var(--line); margin-top: var(--space-3); }
-.accordion-row { border-bottom: 1px solid var(--line); transition: background 0.2s var(--ease); }
-.accordion-row:has(.accordion-trigger[aria-expanded="true"]) { background: rgba(161, 129, 63, 0.06); }
-
-.accordion-row h3 { margin: 0; } /* the row's own heading is reset; the trigger below carries the type */
-
-.accordion-trigger {
-  width: 100%; text-align: left; background: none; border: 0; cursor: pointer;
-  display: flex; align-items: center; justify-content: space-between; gap: var(--space-3);
-  padding: var(--space-3) 0.25em;
-}
-.accordion-trigger__text { display: flex; flex-direction: column; gap: 0.3em; }
-.accordion-trigger__title {
-  font-family: var(--font-display); font-weight: 400; font-size: 1.2rem; color: var(--navy);
-  display: flex; align-items: baseline; gap: 0.6em;
-}
-.accordion-trigger__num { font-family: var(--font-body); font-size: 0.78rem; color: var(--brass-deep); letter-spacing: 0.04em; }
-.accordion-trigger__preview { font-size: var(--step-small); color: var(--navy-soft); }
-.accordion-trigger__mark {
-  flex-shrink: 0; font-family: var(--font-body); font-size: 1.5rem; font-weight: 300;
-  color: var(--brass); transition: transform 0.2s var(--ease); line-height: 1;
-}
-.accordion-trigger[aria-expanded="true"] .accordion-trigger__mark { transform: rotate(45deg); color: var(--brass-deep); }
-
-.accordion-panel { overflow: hidden; max-height: 0; transition: max-height 0.28s var(--ease); }
-.accordion-panel__inner { padding: 0 0.25em var(--space-4); }
-
-/* Restoration & Care: two-column plain service list, no descriptions */
-.service-list { list-style: none; margin: 0; padding: 0; columns: 1; column-gap: var(--space-4); }
-@media (min-width: 640px) { .service-list { columns: 2; } }
-.service-list li { break-inside: avoid; padding: 0.55em 0; border-top: 1px solid var(--line); font-size: var(--step-body); }
-.service-list li:first-child,
-.service-list li:nth-child(2) { border-top: 0; }
-@media (min-width: 640px) {
-  .service-list li:nth-child(2) { border-top: 1px solid var(--line); }
-}
-
-/* Stewardship checklists: single-column item list */
-.check-plain { list-style: none; margin: 0; padding: 0; }
-.check-plain li { padding: 0.55em 0.25em; border-top: 1px solid var(--line); font-size: var(--step-body); }
-.check-plain li:first-child { border-top: 0; }
-
-.accordion-footnote { font-size: var(--step-small); color: var(--navy-soft); margin-top: var(--space-2); }
-
-/* ---- Pricing: a quiet plaque, not a SaaS pricing card ---- */
-.pricing-grid { display: grid; gap: var(--space-3); margin-top: var(--space-3); }
-@media (min-width: 700px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); } }
-.pricing-card { border: 1px solid var(--line); border-top: 2px solid var(--brass); background: var(--paper); padding: var(--space-4); }
-.pricing-card h3 { font-size: var(--step-nav); margin-bottom: 0.2em; color: var(--navy-soft); font-weight: 600; }
-.pricing-card__amount { font-family: var(--font-display); font-weight: 400; font-size: 1.9rem; margin: 0.3em 0 0; color: var(--navy); }
-.pricing-card__amount small { font-family: var(--font-body); font-size: var(--step-small); color: var(--navy-soft); font-weight: 500; }
-.pricing-includes { margin-top: var(--space-3); border-top: 1px solid var(--line); padding-top: var(--space-3); }
-.pricing-includes__list { list-style: none; margin: var(--space-2) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5em 1em; color: var(--navy-soft); font-size: var(--step-body); }
-.pricing-includes__list li::after { content: "·"; margin-left: 1em; color: var(--brass); }
-.pricing-includes__list li:last-child::after { content: ""; margin-left: 0; }
-.pricing-disclaimer { font-size: var(--step-small); color: var(--navy-soft); margin-top: var(--space-3); max-width: 42rem; }
-
-/* ---- Our Work: large project blocks, photography-led ---- */
-.project-block { padding-block: var(--space-4); border-top: 1px solid var(--line); }
-.project-block__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: var(--space-2); margin-bottom: var(--space-2); }
-.project-block__cat { font-family: var(--font-body); font-size: var(--step-small); color: var(--navy-soft); }
-.project-sequence { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-2); }
-@media (max-width: 640px) { .project-sequence { grid-template-columns: 1fr; } }
-.project-sequence .ph { aspect-ratio: 4/3; }
-
-/* ---- Contact page blocks ---- */
-.contact-block { border-top: 1px solid var(--line); padding-block: var(--space-3); }
-.contact-block:first-child { border-top: 0; }
-.contact-block h3 { font-size: 0.82rem; font-family: var(--font-body); letter-spacing: 0.06em; color: var(--brass-deep); font-weight: 700; margin-bottom: 0.5em; text-transform: uppercase; }
-.contact-block__value { font-family: var(--font-display); font-weight: 400; font-size: 1.6rem; margin-bottom: 0.3em; color: var(--navy); }
-.contact-block__value a { text-decoration: none; color: var(--navy); }
-.contact-block__value a:hover { color: var(--brass-deep); }
-.contact-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-2); }
-
-/* ---- Legal page typography ---- */
-.legal h2 { font-size: 1.15rem; margin-top: var(--space-4); font-family: var(--font-body); font-weight: 600; }
-.legal p, .legal li { color: var(--navy-soft); max-width: 42rem; }
-.legal .updated { color: var(--navy-soft); font-size: var(--step-small); margin-bottom: var(--space-3); }
+.hero{display:grid;gap:var(--space-4);padding-block:var(--space-5);align-items:center}
+@media(min-width:900px){.hero{grid-template-columns:minmax(0,1.02fr) minmax(320px,.78fr);gap:4rem;padding-block:3.4rem}}
+.hero--compact{padding-block:var(--space-5)}.hero h1{margin-bottom:.85rem}.hero .lead{margin-bottom:.85rem}
+.hero>div:first-child>p:not(.lead){color:var(--navy-soft)}
+.concept-grid{display:grid;gap:1.4rem 2.25rem;margin-top:1.35rem}@media(min-width:700px){.concept-grid--3{grid-template-columns:repeat(3,1fr)}}
+.concept{padding-top:1rem;border-top:1px solid var(--brass)}.concept h3{font-size:1.02rem;margin-bottom:.35em;text-transform:uppercase;letter-spacing:.035em}.concept p{font-size:1.05rem;line-height:1.5;color:var(--navy-soft);margin-bottom:0}
+/* Journal is deliberately copy-led, not a fake software product. */
+.journal-copy{max-width:46rem}.journal-points{display:grid;gap:.8rem;margin:1.25rem 0 0;padding:0;list-style:none}.journal-points li{padding-top:.8rem;border-top:1px solid var(--line);color:var(--navy-soft)}
+.log-plate{display:none}
+.work-preview{display:grid;gap:1rem;margin-top:1.25rem}@media(min-width:760px){.work-preview{grid-template-columns:1.2fr .9fr .9fr;align-items:start}.work-preview__item:first-child .ph{aspect-ratio:4/3}}
+.work-preview__item{margin:0}.work-preview__item figcaption{margin-top:.65rem;font-family:var(--font-body);font-size:1rem;font-weight:600;color:var(--navy)}
+.accordion{border-top:1px solid var(--line);margin-top:1.3rem}.accordion-row{border-bottom:1px solid var(--line);transition:background .18s ease}.accordion-row:has(.accordion-trigger[aria-expanded="true"]){background:rgba(161,132,85,.055)}.accordion-row h3{margin:0}
+.accordion-trigger{width:100%;text-align:left;background:none;border:0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.05rem .1rem}.accordion-trigger__text{display:flex;flex-direction:column;gap:.2em}.accordion-trigger__title{font-family:var(--font-body);font-weight:600;font-size:1.08rem;color:var(--navy);display:flex;align-items:baseline;gap:.6em}.accordion-trigger__num{font-size:.82rem;color:var(--brass-deep);letter-spacing:.05em}.accordion-trigger__preview{font-size:1rem;color:var(--navy-soft)}.accordion-trigger__mark{flex-shrink:0;font-size:1.45rem;font-weight:300;color:var(--brass);transition:transform .18s ease;line-height:1}.accordion-trigger[aria-expanded="true"] .accordion-trigger__mark{transform:rotate(45deg)}
+.accordion-panel{overflow:hidden;max-height:0;transition:max-height .25s var(--ease)}.accordion-panel__inner{padding:0 .1rem 1.35rem}.service-list{list-style:none;margin:0;padding:0;columns:1;column-gap:2.4rem}@media(min-width:640px){.service-list{columns:2}}.service-list li,.check-plain li{break-inside:avoid;padding:.48em 0;border-top:1px solid var(--line);font-size:1.05rem;color:var(--navy-soft)}.check-plain{list-style:none;margin:0;padding:0}.service-list li:first-child,.check-plain li:first-child{border-top:0}.accordion-footnote{font-size:1rem;color:var(--navy-soft);margin-top:.8rem}
+.pricing-grid{display:grid;gap:1rem;margin-top:1.25rem}@media(min-width:700px){.pricing-grid{grid-template-columns:repeat(2,1fr)}}.pricing-card{border-top:2px solid var(--brass);border-bottom:1px solid var(--line);background:transparent;padding:1.4rem 0}.pricing-card h3{font-size:1.05rem;margin-bottom:.15em;color:var(--navy-soft)}.pricing-card__amount{font-family:var(--font-display);font-size:2rem;margin:.25em 0 0;color:var(--navy)}.pricing-card__amount small{font-family:var(--font-body);font-size:1rem;color:var(--navy-soft);font-weight:500}.pricing-includes{margin-top:1.6rem;border-top:1px solid var(--line);padding-top:1.25rem}.pricing-includes h3{font-size:1rem!important;letter-spacing:.03em!important}.pricing-includes__list{list-style:none;margin:.7rem 0 0;padding:0;display:grid;grid-template-columns:1fr;gap:.4rem 1.8rem;color:var(--navy-soft);font-size:1.05rem}@media(min-width:700px){.pricing-includes__list{grid-template-columns:repeat(2,1fr)}}.pricing-includes__list li::before{content:"—";color:var(--brass);margin-right:.55em}.pricing-includes__list li::after{content:none}.pricing-disclaimer{font-size:1rem;color:var(--navy-soft);margin-top:1.4rem;max-width:46rem}
+.project-block{padding-block:1.8rem;border-top:1px solid var(--line)}.project-block__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.8rem;margin-bottom:.8rem}.project-block__cat{font-size:1rem;color:var(--navy-soft)}.project-sequence{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}@media(max-width:640px){.project-sequence{grid-template-columns:1fr}}
+.contact-block{border-top:1px solid var(--line);padding-block:1.2rem}.contact-block:first-child{border-top:0}.contact-block h3{font-size:.95rem;letter-spacing:.055em;color:var(--brass-deep);font-weight:700;margin-bottom:.4em;text-transform:uppercase}.contact-block__value{font-family:var(--font-display);font-size:1.45rem;margin-bottom:.25em}.contact-block__value a{text-decoration:none}.contact-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.7rem}
+.legal h2{font-size:1.2rem;margin-top:2rem;font-family:var(--font-body);font-weight:700;letter-spacing:0}.legal p,.legal li{color:var(--navy-soft);max-width:46rem}.legal .updated{color:var(--navy-soft);font-size:1rem;margin-bottom:1.2rem}

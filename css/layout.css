@@ -5,15 +5,15 @@
 
 .site-header {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(246, 242, 230, 0.95);
+  background: rgba(247, 243, 232, 0.96);
   backdrop-filter: saturate(140%) blur(6px);
   border-bottom: 1px solid var(--line);
 }
-.site-header .wrap { display: flex; align-items: center; justify-content: space-between; min-height: 4.25rem; }
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; min-height: 4rem; }
 
 .wordmark {
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   letter-spacing: 0.02em;
   text-decoration: none; color: var(--navy); white-space: nowrap;
 }
@@ -58,7 +58,7 @@
 .mobile-menu .btn { width: 100%; justify-content: center; }
 
 /* ---- Footer: classic navy, used once, kept calm and compact ---- */
-.site-footer { background: var(--navy-deep); color: var(--on-navy); padding-block: var(--space-5) var(--space-3); }
+.site-footer { background: var(--navy-deep); color: var(--on-navy); padding-block: 2.2rem 1.35rem; }
 .site-footer .wordmark { color: var(--on-navy); }
 .site-footer .wordmark span { color: var(--brass); }
 .footer-top {
