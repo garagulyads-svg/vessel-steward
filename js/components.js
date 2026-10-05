@@ -1,13 +1,14 @@
 /**
  * VESSEL STEWARD — shared header & footer
- * Edit the markup here once; it renders on every page that includes
- * this file and has <div id="site-header"></div> / <div id="site-footer"></div>.
+ * Requires data/business-info.js to be loaded first (for footer
+ * phone/email). Renders into <div id="site-header"> / <div id="site-footer">.
  */
 (function () {
   var NAV_LINKS = [
     { href: "stewardship.html", label: "Stewardship" },
     { href: "restoration-care.html", label: "Restoration & Care" },
     { href: "our-work.html", label: "Our Work" },
+    { href: "contact.html", label: "Contact" },
   ];
 
   function currentPage() {
@@ -15,7 +16,7 @@
     return path === "" ? "index.html" : path;
   }
 
-  function navItems(forMobile) {
+  function navItems() {
     var page = currentPage();
     return NAV_LINKS.map(function (link) {
       var current = link.href === page;
@@ -53,7 +54,7 @@
       "</button>" +
       "</div>" +
       '<nav class="wrap" aria-label="Mobile">' +
-      "<ul>" + navItems(true) + "</ul>" +
+      "<ul>" + navItems() + "</ul>" +
       '<div class="cta-row">' +
       '<a class="btn btn-primary" href="contact.html">Talk to a Vessel Steward</a>' +
       "</div>" +
@@ -64,35 +65,40 @@
   function renderFooter() {
     var el = document.getElementById("site-footer");
     if (!el) return;
+    var biz = window.VS_BUSINESS || {
+      phoneDisplay: "[Business Phone]", phoneHref: "#",
+      emailDisplay: "[Business Email]", emailHref: "#",
+    };
     el.innerHTML =
       '<footer class="site-footer">' +
       '<div class="wrap">' +
-      '<div class="footer-grid">' +
+      '<div class="footer-top">' +
       '<div>' +
       '<a class="wordmark" href="index.html">VESSEL <span>STEWARD</span></a>' +
       '<p class="footer-tagline">Your boat, looked after.</p>' +
-      '<p class="footer-note">Preventive vessel care, restoration and ongoing stewardship on O\u02bbahu, Hawai\u02bbi.</p>' +
+      '<p class="footer-note">Preventive Vessel Care &middot; Restoration &middot; Stewardship<br>O\u02bbahu, Hawai\u02bbi</p>' +
       "</div>" +
       '<div class="footer-col">' +
       "<h4>Site</h4>" +
       "<ul>" +
+      '<li><a href="index.html">Home</a></li>' +
       '<li><a href="stewardship.html">Stewardship</a></li>' +
       '<li><a href="restoration-care.html">Restoration &amp; Care</a></li>' +
       '<li><a href="our-work.html">Our Work</a></li>' +
-      '<li><a href="about.html">About</a></li>' +
       '<li><a href="contact.html">Contact</a></li>' +
       "</ul>" +
       "</div>" +
       '<div class="footer-col">' +
       "<h4>Get in touch</h4>" +
       "<ul>" +
-      '<li><a href="contact.html">Talk to a Vessel Steward</a></li>' +
-      '<li><a href="privacy.html">Privacy Policy</a></li>' +
+      '<li><a href="' + biz.phoneHref + '">Call / Text &mdash; ' + biz.phoneDisplay + "</a></li>" +
+      '<li><a href="' + biz.emailHref + '">Email &mdash; ' + biz.emailDisplay + "</a></li>" +
       "</ul>" +
       "</div>" +
       "</div>" +
       '<div class="footer-bottom">' +
-      '<span>&copy; <span id="year"></span> Vessel Steward. O\u02bbahu, Hawai\u02bbi.</span>' +
+      '<span>&copy; <span id="year"></span> Vessel Steward. All rights reserved.</span>' +
+      '<span class="footer-legal"><a href="privacy.html">Privacy Policy</a><span>&middot;</span><a href="terms.html">Terms &amp; Service Disclaimer</a></span>' +
       "</div>" +
       "</div>" +
       "</footer>";

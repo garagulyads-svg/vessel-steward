@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — Vessel Steward</title>
-<meta name="description" content="Vessel Steward privacy policy.">
+<meta name="description" content="Vessel Steward Privacy Policy.">
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,440;9..144,500;9..144,560&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/layout.css">
@@ -17,15 +17,61 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <div id="site-header"></div>
+
 <main id="main">
-  <section class="wrap" style="padding-block: var(--space-6); max-width: 42rem;">
+  <section class="wrap legal" style="padding-block: var(--space-6); max-width: 46rem;">
     <h1>Privacy Policy</h1>
-    <p class="lead">Placeholder — replace with your actual privacy policy before launch.</p>
-    <p>This page is a placeholder. Add details here about what information is collected through the contact form, how it's used, and how people can request it be deleted, once your form backend and any analytics tools are finalized.</p>
+    <p class="updated">Last updated: [Date — add before launch]</p>
+
+    <p>Vessel Steward respects your privacy and collects only the information reasonably necessary to communicate with you and provide our services.</p>
+
+    <h2>Information We May Collect</h2>
+    <p>When you contact Vessel Steward, we may receive information such as your name, phone number, email address, vessel information, marina or general vessel location, photographs, and information you voluntarily provide about your vessel or requested services.</p>
+    <p>For Vessel Stewardship clients, we may also maintain photographs, inspection notes, maintenance records, service history, and other information related to the care of the vessel.</p>
+
+    <h2>How We Use Information</h2>
+    <p>We may use this information to:</p>
+    <ul>
+      <li>respond to inquiries;</li>
+      <li>evaluate requested work;</li>
+      <li>schedule and provide services;</li>
+      <li>communicate about the condition and maintenance of a vessel;</li>
+      <li>maintain service and Boat Care Journal records;</li>
+      <li>coordinate approved work with third-party marine professionals;</li>
+      <li>maintain business and service records.</li>
+    </ul>
+    <p>We do not sell personal information.</p>
+
+    <h2>Service Providers</h2>
+    <p>When necessary to provide or coordinate an authorized service, relevant information may be shared with service providers or marine professionals involved in that work.</p>
+
+    <h2>Data and Boat Care Records</h2>
+    <p>Boat Care Journal information may include photographs, observations, maintenance history and records relating to a vessel.</p>
+    <p>Features, storage practices and access options for the Boat Care Journal may change as the service develops.</p>
+
+    <h2>Data Security</h2>
+    <p>We take reasonable measures to protect information under our control. However, no electronic storage or communication system can be guaranteed to be completely secure.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this Privacy Policy may be directed to:</p>
+    <p>
+      Vessel Steward<br>
+      O‘ahu, Hawai‘i<br>
+      <a class="link-brass" id="privacy-email" href="#">[Business Email]</a>
+    </p>
   </section>
 </main>
+
 <div id="site-footer"></div>
+<script src="data/business-info.js"></script>
 <script src="js/components.js"></script>
 <script src="js/main.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var biz = window.VS_BUSINESS;
+    var el = document.getElementById("privacy-email");
+    if (biz && el) { el.textContent = biz.emailDisplay; el.href = biz.emailHref; }
+  });
+</script>
 </body>
 </html>

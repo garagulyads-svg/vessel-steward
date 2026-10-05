@@ -1,32 +1,35 @@
 /* =========================================================
    VESSEL STEWARD — DESIGN TOKENS
-   Palette, type and spacing scale. Edit here to restyle
-   the whole site from one place.
+   Established American yacht-club / marine-craftsmanship palette.
+   Edit here to restyle the whole site from one place.
    ========================================================= */
 :root {
-  /* ---- Color: quiet marine palette ---- */
-  --ink: #16232A;            /* near-black teal, primary text */
-  --ink-soft: #3B4A50;       /* secondary text on light */
-  --fog: #EEF0EA;            /* primary background — sea-fog linen */
-  --canvas: #F7F6F1;         /* card / alt-section background */
-  --canvas-deep: #E4E6DE;    /* recessed panels, input backgrounds */
-  --line: #D6D8CC;           /* hairline borders/dividers */
-  --steward: #3F5A52;        /* deep sea-green — primary accent + CTA */
-  --steward-deep: #2C4038;   /* hover/active state of accent */
-  --teak: #8B6B46;           /* warm wood tone — restoration proof only */
-  --paper-on-ink: #EDEAE0;   /* text on dark sections */
-  --ink-panel: #101B20;      /* dark section background */
+  /* ---- Color ---- */
+  --ivory: #F3EFE3;        /* sailcloth — primary background */
+  --ivory-deep: #EAE2CC;   /* recessed panels, alt sections */
+  --paper: #FAF8F1;        /* lightest surface, cards on ivory-deep */
+  --navy: #1C2B3A;         /* deep marine ink — primary text & headings */
+  --navy-soft: #45586A;    /* secondary text */
+  --navy-deep: #141F29;    /* footer / deepest navy surface */
+  --teak: #8B6239;         /* warm wood — used in photography captions only */
+  --brass: #9C7A3C;        /* restrained bronze/brass accent */
+  --brass-deep: #7E632F;   /* brass hover/active */
+  --line: #D8CEB2;         /* warm hairline border */
+  --line-on-navy: rgba(237, 231, 214, 0.22);
+  --on-navy: #EDE7D6;      /* text on navy surfaces */
+  --on-navy-soft: #B7AF97;
 
   /* ---- Type ---- */
-  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-display: "Libre Caslon Display", Georgia, "Times New Roman", serif;
+  --font-serif-text: "Libre Caslon Text", Georgia, serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   --step-caption: 0.8125rem;
   --step-body: 1.0625rem;
   --step-lead: 1.25rem;
-  --step-h3: clamp(1.25rem, 1.1rem + 0.6vw, 1.6rem);
-  --step-h2: clamp(1.75rem, 1.4rem + 1.6vw, 2.6rem);
-  --step-h1: clamp(2.25rem, 1.6rem + 3vw, 3.75rem);
+  --step-h3: clamp(1.2rem, 1.08rem + 0.5vw, 1.5rem);
+  --step-h2: clamp(1.7rem, 1.4rem + 1.4vw, 2.5rem);
+  --step-h1: clamp(2.2rem, 1.6rem + 2.8vw, 3.6rem);
 
   --space-1: 0.5rem;
   --space-2: 0.875rem;
@@ -34,11 +37,11 @@
   --space-4: 2.25rem;
   --space-5: 3.5rem;
   --space-6: 5.5rem;
-  --space-7: 8rem;
+  --space-7: 7.5rem;
 
-  --content-max: 74rem;
-  --text-max: 40rem;
+  --content-max: 72rem;
+  --text-max: 38rem;
 
-  --radius: 3px;
+  --radius: 0px; /* square, engraved ledger feel — no rounded-SaaS corners */
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
